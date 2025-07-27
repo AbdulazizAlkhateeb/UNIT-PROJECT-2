@@ -15,39 +15,38 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <!-- Logo above navbar -->
-    <div class="container-fluid">
-        <div class="logo-container">
-            <a class="standalone-logo" href="#">
-                Kiddy<span class="dot">.</span>
-            </a>
-        </div>
-    </div>
-    
+
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
+        <div class="container">
+            <!-- Brand/Logo -->
+            <a class="navbar-brand" href="#">HOME</a>
             
-            <!-- Mobile toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse justify-content-center" >
-                <!-- Navigation Links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Packages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
+            <!-- Navigation Content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Centered Navigation Links -->
+                <div class="mx-auto">
+                    <ul class="nav nav-pills nav-pills-custom">
+                        <li class="nav-item">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Students' Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Teachers' Dashboard</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side User Actions -->
+                <div class="user-actions">
+                    <a href="" class="btn btn-add-student">Add student</a>
+                </div>
             </div>
         </div>
     </nav>
     
-    <!-- Demo content -->
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center text-white">
