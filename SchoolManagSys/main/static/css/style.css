@@ -13,8 +13,7 @@
 .navbar-brand {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333 !important;
-    text-transform: uppercase;
+    color: #333 ;
     letter-spacing: 1px;
 }
 
@@ -57,19 +56,7 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.btn-add-student {
-    background-color: #195b91;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 20px;
-    font-weight: 500;
-}
 
-.btn-add-student:hover {
-    background-color: #333;
-    color: white;
-}
 
 .navbar-toggler {
     border: none;
@@ -82,11 +69,84 @@
 
 
 @media (max-width: 768px) {
-  .nav-pills-custom {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 5px;
-  }
+
+    .nav-pills-custom {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .stat-card {
+        margin-bottom: 1rem;
+    }
 }
 
+
+
+.more-link:hover {
+    color: green !important;
+    text-decoration: underline;
+
+}
+
+i.social-icon {
+    margin: 8px;
+    color: #a0adb9;
+    transition: color 0.2s;
+}
+
+i.social-icon:hover {
+    color: #000;
+}
+
+
+
+.hero-section {
+  background:
+    linear-gradient(to bottom, rgba(135,206,235,0.5), rgba(135,206,235,0)),
+    url("../images/bg-serch.jpg") center/cover no-repeat;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn-custom-primary {
+  background: #195b91;
+  border: none;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  border-radius: .5rem;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(53,153,220,0.4);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn-custom-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(53,153,220,0.4);
+  background: #124269;
+}

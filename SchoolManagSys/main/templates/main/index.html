@@ -1,82 +1,58 @@
+{% extends 'main/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
+{% block title %}Home{% endblock %}
+{% block content %}
 
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <!-- Brand/Logo -->
-            <a class="navbar-brand" href="#">HOME</a>
-            
-            <!-- Mobile Toggle Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Navigation Content -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Centered Navigation Links -->
-                <div class="mx-auto">
-                    <ul class="nav nav-pills nav-pills-custom">
-                        <li class="nav-item">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Students' Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Teachers' Dashboard</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Right Side User Actions -->
-                <div class="user-actions">
-                    <a href="" class="btn btn-add-student">Add student</a>
-                </div>
+
+<section class="hero-section d-flex align-items-center text-white">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <h1 class="display-3 fw-bold mb-3">Welcome to School Dashboard</h1>
+        <p class="lead mb-5">Manage your school efficiently with comprehensive tools and real time insights</p>
+
+
+        <div class="row g-4 mb-5">
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card p-4 text-center">
+              <div class="fs-1 fw-bold">1,247</div>
+              <div class="text-uppercase text-white">Students</div>
             </div>
-        </div>
-    </nav>
-    
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-center text-white">
-                <h1>Welcome to Kiddy</h1>
-                <p class="lead">Your navbar is ready to use!</p>
+          </div>
+
+
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card p-4 text-center">
+              <div class="fs-1 fw-bold">89</div>
+              <div class="text-uppercase text-white">Teachers</div>
             </div>
+          </div>
+
+
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card p-4 text-center">
+              <div class="fs-1 fw-bold">24</div>
+              <div class="text-uppercase text-white">Classes</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card p-4 text-center">
+              <div class="fs-1 fw-bold">95<span class="fs-3">%</span></div>
+              <div class="text-uppercase text-white">Attendance Rate</div>
+            </div>
+          </div>
         </div>
+
+
+        <a href="#" class="btn btn-custom-primary btn-lg">View Dashboard</a>
+
+      </div>
     </div>
-    
+  </div>
+</section>
 
 
-
-
-
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% endif %}
-
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
