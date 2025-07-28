@@ -9,3 +9,12 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 });
+
+
+document.getElementById("classroomSearch").addEventListener("input", function () {
+    const value = this.value.toLowerCase();
+    document.querySelectorAll(".classroom-row").forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(value) ? "" : "none";
+    });
+});

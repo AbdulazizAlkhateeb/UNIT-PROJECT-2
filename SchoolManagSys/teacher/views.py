@@ -53,8 +53,16 @@ def update_teacher_view(request: HttpRequest, teacher_id: int):
 
 # classrooms_view
 def classrooms_view(request: HttpRequest):
-    classrooms = Classroom.objects.all()
-    return render(request, "teacher/classrooms.html", {"classrooms": classrooms})
+    classrooms = Classroom.objects.prefetch_related("students").all()
+
+    selected_grade = request.GET.get("grade")
+    
+    if selected_grade:
+        classrooms = Classroom.objects.filter(grade=selected_grade).prefetch_related("students")
+    else:
+        classrooms = Classroom.objects.prefetch_related("students").all()
+
+    return render(request, "teacher/classrooms.html", {"classrooms": classrooms, "GradeChoices": list(reversed(Classroom.GradeChoices .choices)), "selected_grade": selected_grade })
 
 
 
@@ -92,5 +100,5 @@ def update_classroom_view(request: HttpRequest, classroom_id: int):
         else:
             messages.error(request, "Invalid form data.")
 
-    return render(request, "teacher/update_classroom.html", {"classroom": classroom})
+    return render(request, "teacher/update_classroom.html", {"classroom": classroom, "GradeChoices": reversed(Classroom.GradeChoices .choices) })
 

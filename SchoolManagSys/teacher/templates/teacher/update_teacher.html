@@ -12,8 +12,8 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Students</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">Teachers</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Classes</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'teacher:teachers_view'%}">Teachers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'teacher:classrooms_view'%}">Classes</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
             </ul>
         </nav>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-section mt-5">
-                <div class="form-header">Add New Teacher</div>
+                <div class="form-header">Update Teacher info</div>
                 <div class="form-body">
                     <form id="teacherForm" action="{% url 'teacher:update_teacher_view' teacher.id %}" method="post" enctype="multipart/form-data" class="form-grid">
 
