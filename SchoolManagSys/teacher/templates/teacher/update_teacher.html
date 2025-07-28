@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <nav class="sidebar col-md-3">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Students</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">Teachers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content col-md-9">
+
+            <div class="content-header">
+                <h1>Update Teacher</h1>
+            </div>
+
+            <div class="form-section mt-5">
+                <div class="form-header">Add New Teacher</div>
+                <div class="form-body">
+                    <form id="teacherForm" action="{% url 'teacher:update_teacher_view' teacher.id %}" method="post" enctype="multipart/form-data" class="form-grid">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" value="{{ teacher.first_name }}" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="middle_name" class="form-label">Middle Name</label>
+                            <input type="text" name="middle_name" id="middle_name" class="form-control" value="{{ teacher.middle_name }}" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" value="{{ teacher.last_name }}" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{ teacher.email }}" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" id="phone" class="form-control" value="{{ teacher.phone }}" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="major" class="form-label">Major</label>
+                            <input type="text" name="major" id="major" class="form-control" value="{{ teacher.major }}" required />
+                        </div>
+
+                        <div class="d-flex justify-content-end mt-3">
+                            <button type="reset" class="btn btn-secondary me-3">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update Teacher</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
