@@ -33,3 +33,24 @@ A web-based school management system built using Django. The system provides int
 
 ## UML for the model `Teacher` &  `Student` & `Classroom` & `attendance` & `classroom_courses` Model 
 <img width="618" style="width:100%; height:auto;" alt="Screenshot 2024-03-19 at 3 16 01 PM" src="assets/uml1.png">
+
+
+## User Stories 
+
+- As an admin, I want to add a new teacher with their details (name, phone, email) so I can assign them to classrooms.
+
+- As an admin, I want to add a new student and assign them to a classroom so they are registered in the system.
+
+- As an admin, I want to create a new classroom with a year and section so I can organize students and teachers.
+
+- As an admin, I want to update or delete teacher, student, or classroom data so I can keep the system up to date.
+
+- As an admin, I want to record daily attendance for each student so I can track who is present or absent.
+
+- As an admin, I want to generate attendance reports by student or date so I can monitor attendance.
+
+
+
+
+
+
