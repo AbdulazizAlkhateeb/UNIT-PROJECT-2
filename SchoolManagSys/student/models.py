@@ -18,16 +18,18 @@ class Student(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class StatusChoices(models.TextChoices):
-    PRESENT = 'present',   'Present'
-    ABSENT  = 'absent',    'Absent'
-    EXCUSED = 'excused',   'Excused'
-    LATE    = 'late',      'Late'
+
 
 class Attendance(models.Model):
+    class StatusChoices(models.TextChoices):
+        PRESENT = 'present',   'Present'
+        ABSENT  = 'absent',    'Absent'
+        EXCUSED = 'excused',   'Excused'
+        LATE    = 'late',      'Late'
+
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     date = models.DateField()
-    status = models.CharField(max_length=20, choices=StatusChoices.choices)
+    status = models.CharField(max_length=20, choices=StatusChoices.choices, default="present")
     remark = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)

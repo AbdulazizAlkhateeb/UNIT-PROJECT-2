@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Update Student{% endblock %}
+{% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <nav class="sidebar col-md-3">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'student:students_view' %}">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'teacher:teachers_view' %}">Teachers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'teacher:classrooms_view' %}">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content col-md-9">
+            <div class="content-header">
+                <h1>Update Student</h1>
+            </div>
+
+            <div class="form-section mt-4">
+                <div class="form-header">Edit Student Details</div>
+                <div class="form-body">
+                    <form method="post" enctype="multipart/form-data" class="form-grid">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" value="{{ student.first_name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="middle_name" class="form-label">Middle Name</label>
+                            <input type="text" name="middle_name" id="middle_name" class="form-control" value="{{ student.middle_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" value="{{ student.last_name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{ student.email }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" id="phone" class="form-control" value="{{ student.phone }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea name="address" id="address" class="form-control" rows="2">{{ student.address }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="classroom" class="form-label">Classroom</label>
+                            <select name="classroom" id="classroom" class="form-control" required>
+                                {% for classroom in classrooms %}
+                                    <option value="{{ classroom.id }}"
+                                        {% if student and student.classroom.id == classroom.id %}selected{% endif %}>
+                                        {{ classroom.name }} - {{ classroom.grade }} - {{ classroom.section }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+
+                        <div class="d-flex justify-content-end mt-3">
+                            <a href="{% url 'student:students_view' %}" class="btn btn-secondary me-3">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Update Student</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Teacher{% endblock %}
+{% block title %}Classroom Management{% endblock %}
 {% block content %}
 
 
@@ -12,10 +12,10 @@
         <nav class="sidebar col-md-3">
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'student:students_view' %}">Students</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'teacher:teachers_view' %}">Teachers</a></li>
                 <li class="nav-item active"><a class="nav-link" href="{% url 'teacher:classrooms_view' %}">Classes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'student:attendance_view' %}">Attendance</a></li>
             </ul>
         </nav>
 
@@ -35,15 +35,16 @@
             </div>
 
             <div class="row">
+                <div><h5>All Class:</h5></div>
                 <form method="get" class="mb-4 d-flex align-items-center">
                     <label for="gradeFilter" class="form-label me-2 mb-0">Filter by Grade:</label>
-                    <select name="grade" id="gradeFilter" class="form-select w-auto me-2" onchange="this.form.submit()">
+                    <select name="grade" id="gradeFilter" class="form-select w-auto me-2" >
                         <option value="">All Grades</option>
                         {% for value, label in GradeChoices %}
                             <option value="{{ value }}" {% if selected_grade == value %}selected{% endif %}>{{ label }}</option>
                         {% endfor %}
                     </select>
-                    <noscript><button type="submit" class="btn btn-primary btn-sm">Filter</button></noscript>
+                    <button type="submit" class="btn btn-primary btn-sm">Filter</button>
                 </form>
                 {% for classroom in classrooms %}
                 <div class="col-md-4 mb-4">

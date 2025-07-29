@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Attendance{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <nav class="sidebar col-md-3">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'student:students_view' %}">Students</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'teacher:teachers_view' %}">Teachers</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'teacher:classrooms_view' %}">Classes</a></li>
+        <li class="nav-item active"><a class="nav-link" href="{% url 'student:attendance_view' %}">Attendance</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content min-vh-100 col-md-9">
+      <div class="content-header mb-4">
+        <h1>Attendance</h1>
+        <a class="btn btn-primary" href="{% url 'student:attendance_report_view' %}">Load Attendance history</a></li>
+      </div>
+
+      <form method="get" class="mb-4 d-flex align-items-center gap-3">
+        <select name="classroom" class="form-control w-25" required>
+          <option value="">Select Classroom</option>
+          {% for classroom in classrooms %}
+            <option value="{{ classroom.id }}" {% if classroom.id|stringformat:"s" == selected_classroom_id %}selected{% endif %}>
+              {{ classroom.name }} - {{ classroom.grade }} - {{ classroom.section }}
+            </option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Load Students</button>
+      </form>
+
+      {% if students %}
+      <form method="post" action="{% url 'student:attendance_view' %}">
+        {% csrf_token %}
+        <input type="hidden" name="classroom_id" value="{{ selected_classroom_id }}">
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" id="date" name="date" class="form-control w-25" value="{{ selected_date }}" required>
+        </div>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Status</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+            <tr>
+              <td>{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</td>
+              <td>
+                <select name="status_{{ student.id }}" class="form-control" required>
+                  {% for key, label in StatusChoices %}
+                    <option value="{{ key }}">{{ label }}</option>
+                  {% endfor %}
+                </select>
+              </td>
+              <td>
+                <input type="text" name="remark_{{ student.id }}" class="form-control" placeholder="Optional">
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end mt-3">
+          <button type="submit" class="btn btn-success">Save Attendance</button>
+        </div>
+      </form>
+      {% endif %}
+    </main>
+  </div>
+</div>
+
+{% endblock %}

@@ -12,8 +12,8 @@ class AttendanceForm(forms.ModelForm):
         fields = "__all__"
 
 
-class GradeForm(forms.ModelForm):
-    class Meta:
-        model = Grade
-        fields = "__all__"
+# class GradeForm(forms.ModelForm):
+#     class Meta:
+#         model = Grade
+#         fields = "__all__"
 
