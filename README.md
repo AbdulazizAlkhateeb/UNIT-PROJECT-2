@@ -52,5 +52,10 @@ A web-based school management system built using Django. The system provides int
 
 
 
+## wireframe for the main pages
+<img width="1771" style="width:100%" alt="Screenshot 2024-03-19 at 2 27 18 PM" src="assets/wireframe1.png">
+<img width="1771" style="width:100%" alt="Screenshot 2024-03-19 at 2 27 18 PM" src="assets/wireframe2.png">
+<img width="1771" style="width:100%" alt="Screenshot 2024-03-19 at 2 27 18 PM" src="assets/wireframe3.png">
+<img width="1771" style="width:100%" alt="Screenshot 2024-03-19 at 2 27 18 PM" src="assets/wireframe4.png">
 
 
