@@ -1,5 +1,5 @@
 from django.db import models
-from teacher.models import Classroom, Course
+from teacher.models import Classroom
 
 # Create your models here.
 
@@ -35,11 +35,3 @@ class Attendance(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
 
-class Grade(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='grades')
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='grades')
-    score = models.DecimalField(max_digits=5, decimal_places=2)
-    date = models.DateField()
-    remark = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)

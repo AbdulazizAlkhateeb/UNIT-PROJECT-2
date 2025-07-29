@@ -16,38 +16,37 @@
         <div class="row g-4 mb-5">
           <div class="col-md-3 col-sm-6">
             <div class="stat-card p-4 text-center">
-              <div class="fs-1 fw-bold">1,247</div>
+              <div class="fs-1 fw-bold">{{ student_count }}</div>
               <div class="text-uppercase text-white">Students</div>
             </div>
           </div>
 
-
           <div class="col-md-3 col-sm-6">
             <div class="stat-card p-4 text-center">
-              <div class="fs-1 fw-bold">89</div>
+              <div class="fs-1 fw-bold">{{ teacher_count }}</div>
               <div class="text-uppercase text-white">Teachers</div>
             </div>
           </div>
 
-
           <div class="col-md-3 col-sm-6">
             <div class="stat-card p-4 text-center">
-              <div class="fs-1 fw-bold">24</div>
+              <div class="fs-1 fw-bold">{{ classroom_count }}</div>
               <div class="text-uppercase text-white">Classes</div>
             </div>
           </div>
 
-
           <div class="col-md-3 col-sm-6">
             <div class="stat-card p-4 text-center">
-              <div class="fs-1 fw-bold">95<span class="fs-3">%</span></div>
+              <div class="fs-1 fw-bold">
+                {{ attendance_rate|default:"0" }}<span class="fs-3">%</span>
+              </div>
               <div class="text-uppercase text-white">Attendance Rate</div>
             </div>
           </div>
         </div>
 
 
-        <a href="" class="btn btn-custom-primary btn-lg">View Dashboard</a>
+        <a href="{% url 'student:students_view' %}" class="btn btn-custom-primary btn-lg">View Dashboard</a>
 
       </div>
     </div>

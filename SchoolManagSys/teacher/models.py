@@ -36,24 +36,11 @@ class Classroom(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Course(models.Model):
-    class SemesterChoices(models.TextChoices):
-        FIRST  = 'first',  'First Semester'
-        SECOND = 'second', 'Second Semester'
-        THIRD  = 'third',  'Third Semester'
 
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    coures_Image = models.ImageField(upload_to="images/", default="images/default.jpg")
-    grade_level = models.CharField(max_length=50)
-    semester = models.CharField(max_length=50,choices=SemesterChoices.choices)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
 
 class ClassroomCourse(models.Model):
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

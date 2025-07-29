@@ -30,14 +30,13 @@
                 <div class="mx-auto">
                     <ul class="nav nav-pills nav-pills-custom">
                         <li class="nav-item"><a class="nav-link" href="{% url 'main:home_view' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Students' Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Teachers' Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'main:about_view' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'student:students_view' %}">Teachers' Dashboard</a></li>
                     </ul>
                 </div>
                 
                 <div class="user-actions">
-                    <a href="" class="btn btn-custom-primary btn">Add student</a>
+                    
                 </div>
             </div>
         </div>
