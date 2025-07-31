@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-__tkipng!5xhab0(r2xqjcd0istoi56d^^&n)g46o&s(upyy36
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://unit-project-2-production-6654.up.railway.app", "http://127.0.0.1"]
 
 
 # Application definition
